@@ -53,7 +53,7 @@ const UploadDoc = () => {
   return (
     <div className='w-full'>
       <form className="w-full" onSubmit={handleSubmit}>
-        <label htmlFor='document' className='bg-secondary w-full flex h-20 rounded-md border-4 border-dashed border-blue-900 relative'>
+        <label htmlFor='document' className='mt-4 bg-secondary w-full flex h-20 rounded-md border-4 border-dashed border-blue-900 relative'>
           <div className='absolute inset-0 m-auto flex justify-center items-center'>
             {document?.name || "Drag and drop your file here..."}
           </div>
@@ -70,7 +70,7 @@ const UploadDoc = () => {
           type='submit'
           variant="neo"
           size="lg"
-          className='mt-2'
+          className='mt-8'
           disabled={loading}
         >
           {loading ? "Generating..." : "Generate Quiz"}

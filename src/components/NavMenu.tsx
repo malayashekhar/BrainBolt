@@ -1,4 +1,6 @@
+"use client";
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,6 +19,11 @@ import { BarChartBig, Upload } from "lucide-react"
 import Link from "next/link"
 
 export function NavMenu() {
+  const router = useRouter()
+
+  const onNewClick = () => {
+    router.push(`/quiz/new`)
+  }
   return (
     <DropdownMenuContent className="w-56" align="start">
     <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -28,10 +35,10 @@ export function NavMenu() {
             </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-            <Link href="/quiz/new" className="flex flex-row">
+            <a onClick={onNewClick} className="flex flex-row">
                 <Upload className="mr-2 h-4 w-4" />
                 <span>New Quiz</span>
-            </Link>
+            </a>
         </DropdownMenuItem>
     </DropdownMenuGroup>
     </DropdownMenuContent>

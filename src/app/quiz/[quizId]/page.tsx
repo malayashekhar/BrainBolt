@@ -4,9 +4,9 @@ import { eq } from "drizzle-orm";
 import QuizQuestions from "../quizQuestions";
 
 const Page = async ({ params }: {
-    params: {
+    params: Promise<{
         quizId: string 
-    }
+    }>
 }) => {
     const { quizId } = await params; 
     

@@ -9,13 +9,13 @@ interface Schema {
     quiz: {
         name: string;
         description: string;
-        questions: {
+        questions: Array<{ // Make it an array
             questionText: string;
-            answers: {
+            answers: Array<{ // Make it an array
                 answerText: string;
                 isCorrect: boolean;
-            };
-        };
+            }>;
+        }>;
     };
 }
 
@@ -87,10 +87,6 @@ Text:
         const result = await chain.invoke({
             query: texts.join('\n'),
         });
-
-        console.log(result);
-
-        
 
         const { quizId } = await saveQuiz(result.quiz);
 

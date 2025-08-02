@@ -31,7 +31,6 @@ export default function QuizQuestions(props: Props) {
 
     const router = useRouter();
 
-    // Add early return if no questions
     if (!questions || questions.length === 0) {
         return (
             <div className="flex items-center justify-center h-screen">
@@ -141,7 +140,7 @@ export default function QuizQuestions(props: Props) {
             <footer className="footer pb-9 px-6 relative mb-0">
                 <ResultCard isCorrect={isCorrect} correctAnswer={currentQuestionData?.answers?.find(answer => answer.isCorrect)?.answerText || ""} />
                 {
-                    (currentQuestion === questions.length - 1) ? <Button variant="neo" size="lg" onClick={handleSubmit}>Submit</Button> : <Button variant="neo" size="lg" onClick={handleNext}>{!started ? "Start" : "Next"}</Button>
+                    (currentQuestion === questions.length - 1) ? <Button className="mt-8" variant="neo" size="lg" onClick={handleSubmit}>Submit</Button> : <Button variant="neo" size="lg" className="mt-8" onClick={handleNext}>{!started ? "Start" : "Next"}</Button>
                 }
             </footer>
         </div>
